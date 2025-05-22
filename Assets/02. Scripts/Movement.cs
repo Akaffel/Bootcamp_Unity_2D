@@ -1,16 +1,17 @@
-using Unity.VisualScripting;
 using UnityEngine;
-
+ 
 public class Movement : MonoBehaviour
 {
-    public float moveSpeed = 0.1f;
-    void Start()
+    public float moveSpeed = 5f;
+     
+    private void Update()
     {
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
         
-    }
-
-    void Update()
-    {
-        this.transform.position = this.transform.position + Vector3.forward*moveSpeed*Time.deltaTime;
+        Vector3 direction = new Vector3(h, 0, v);
+        Debug.Log($"현재 입력 : {direction}");
+        
+        transform.position += direction * moveSpeed * Time.deltaTime;
     }
 }
