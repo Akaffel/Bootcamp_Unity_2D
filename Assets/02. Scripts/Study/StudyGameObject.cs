@@ -6,22 +6,13 @@ public class StudyGameObject : MonoBehaviour
 {
     public GameObject prefab;
 
-    public GameObject destroyObj;
-
     public Vector3 pos;
     public Quaternion rot;
     
-    void Start()
+    void Awake()
     {
         Debug.Log("창조");
         Create();
-        
-        Destroy(destroyObj, 3f);
-    }
-
-    void OnDestroy()
-    {
-        Debug.Log("파괴");
     }
 
     void Create()
